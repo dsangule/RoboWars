@@ -11,10 +11,12 @@ public class PlayerSetup : MonoBehaviour {
     public TextMeshPro nicknameText;
     public Transform TPWeaponHolder;
     public Transform nameTag;
+    public Transform playerEyes;
 
     public void IsLocalPlayer() {
         TPWeaponHolder.gameObject.SetActive(false);
         nameTag.gameObject.SetActive(false);
+        playerEyes.gameObject.SetActive(false);
 
         movement.enabled = true;
         camera.SetActive(true);

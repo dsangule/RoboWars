@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour  {
         if (health <= 0) {
             if (isLocalPlayer) {
                 RoomManager.instance.SpawnPlayer();
+                Debug.Log("PlayerHealth");
                 RoomManager.instance.deaths++;
                 RoomManager.instance.SetHashes();
             }
