@@ -7,7 +7,7 @@ using Photon.Pun.UtilityScripts;
 using TMPro;
 
 public class Weapon : MonoBehaviour {
-    public Camera camera;
+    public new Camera camera;
     public int damage;
     public float fireRate;
 
@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour {
     public Image ammoCircle;
 
     [Header("Animation")]
-    public Animation animation;
+    public new Animation animation;
     public AnimationClip reload;
 
     [Header("Recoil Settings")]
@@ -44,12 +44,12 @@ public class Weapon : MonoBehaviour {
     private bool isRecovering;
 
     void SetAmmo() {
-        ammoCircle.fillAmount = (float)ammo / magAmmo; 
+        ammoCircle.fillAmount = (float)ammo / magAmmo;
+        magText.text = mag.ToString();
+        ammoText.text = ammo + "/" + magAmmo;
     }
 
     void Start() {
-        magText.text = mag.ToString();
-        ammoText.text = ammo + " / " + magAmmo;
         SetAmmo();
         originalPosition = transform.localPosition;
         recoilLength = 0;
@@ -63,8 +63,6 @@ public class Weapon : MonoBehaviour {
         if (Input.GetButton("Fire1") && nextFire <= 0 && ammo > 0 && animation.isPlaying == false) {
             nextFire = 1 / fireRate;
             ammo--;
-            magText.text = mag.ToString();
-            ammoText.text = ammo + "/" + magAmmo;
             SetAmmo();
             Fire();
         }
@@ -85,8 +83,6 @@ public class Weapon : MonoBehaviour {
             mag--;
             ammo = magAmmo;
         }
-        magText.text = mag.ToString();
-        ammoText.text = ammo + "/" + magAmmo;
         SetAmmo();
     }
 

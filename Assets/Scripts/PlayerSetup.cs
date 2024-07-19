@@ -6,7 +6,7 @@ using TMPro;
 
 public class PlayerSetup : MonoBehaviour {
     public PlayerMovement movement;
-    public GameObject camera;
+    public new GameObject camera;
     public string nickname;
     public TextMeshPro nicknameText;
     public Transform TPWeaponHolder;

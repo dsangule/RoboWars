@@ -5007,7 +5007,7 @@ GameObject:
   - component: {fileID: 2708598583397607897}
   - component: {fileID: 2708598583397607910}
   - component: {fileID: 2708598583397607899}
-  - component: {fileID: 1303222343882741667}
+  - component: {fileID: -7310942008185834490}
   m_Layer: 0
   m_Name: CFXR Impact Glowing HDR (Blue)
   m_TagString: Untagged
@@ -9921,7 +9921,7 @@ MonoBehaviour:
     perlinColor: 0
     perlinColorSpeed: 1
   fadeOutReference: {fileID: 0}
---- !u!114 &1303222343882741667
+--- !u!114 &-7310942008185834490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
