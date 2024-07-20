@@ -2013,6 +2013,10 @@ MonoBehaviour:
   recoverPercent: 0.7
   recoilUp: 0.01
   recoilBack: 0.04
+  bulletHolePrefab: {fileID: 0}
+  canBeShot:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &4054349088276198411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2219,6 +2223,10 @@ MonoBehaviour:
   recoverPercent: 0.7
   recoilUp: 0.01
   recoilBack: 0.04
+  bulletHolePrefab: {fileID: 0}
+  canBeShot:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &3032455531347036224
 MonoBehaviour:
   m_ObjectHideFlags: 0
