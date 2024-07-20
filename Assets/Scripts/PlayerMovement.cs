@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool isSprinting;
     private bool isJumping;
     private bool isGrounded = false;
+    private bool isPaused;
 
     private float baseFov;
     private float sprintFovModifier = 1.25f;
@@ -37,9 +38,25 @@ public class PlayerMovement : MonoBehaviour {
 
         isSprinting = Input.GetButton("Sprint") && input.y > 0.5f;
         isJumping = Input.GetButton("Jump");
+        isPaused = Input.GetKeyDown(KeyCode.Escape);
+
+        if (isPaused) {
+            GameObject.Find("Pause").GetComponent<Pause>().TogglePause();
+        }
+        if (Pause.paused) {
+            isSprinting = false;
+            isJumping = false;
+            isGrounded = false;
+        }
     }
 
     void FixedUpdate() {
+        if (Pause.paused) {
+            input = Vector2.zero;
+            isSprinting = false;
+            isJumping = false;
+            isGrounded = false;
+        }
         if (isGrounded) {
             if (isJumping) {
                 rb.velocity = new Vector3(rb.velocity.x, jumpHeight, rb.velocity.z);

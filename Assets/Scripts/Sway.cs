@@ -17,6 +17,7 @@ public class Sway : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Pause.paused) return;
         Vector2 input = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         input.x = Mathf.Clamp(input.x, -swayClamp, swayClamp);
         input.y = Mathf.Clamp(input.y, -swayClamp, swayClamp);
