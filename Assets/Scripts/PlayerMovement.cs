@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
+    public Camera playerCam;
+    [Space]
     public float walkSpeed = 8f;
-    public float sprintSpeed = 14f;
+    public float sprintSpeed = 12f;
     public float maxVelocityChange = 10f;
     [Space]
     public float airControl = 0.5f;
     [Space]
-    public float jumpHeight = 5f;
+    public float jumpHeight = 7f;
 
     private Vector2 input;
     private Rigidbody rb;
@@ -19,20 +20,23 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping;
     private bool isGrounded = false;
 
+    private float baseFov;
+    private float sprintFovModifier = 1.25f;
+
     void Start() {
         rb = GetComponent<Rigidbody>();
+        baseFov = playerCam.fieldOfView;
+    }
+    private void OnTriggerStay(Collider other) {
+        isGrounded = true;
     }
 
     void Update() {
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         input.Normalize();
 
-        isSprinting = Input.GetButton("Sprint");
+        isSprinting = Input.GetButton("Sprint") && input.y > 0.5f;
         isJumping = Input.GetButton("Jump");
-    }
-
-    private void OnTriggerStay(Collider other) {
-        isGrounded = true;
     }
 
     void FixedUpdate() {
@@ -54,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
                 velocity1 = new Vector3(velocity1.x * 0.2f * Time.fixedDeltaTime, velocity1.y, velocity1.z * 0.2f * Time.fixedDeltaTime);
                 rb.velocity = velocity1;
             }
+        }
+        if (isSprinting) {
+            playerCam.fieldOfView = Mathf.Lerp(playerCam.fieldOfView, baseFov * sprintFovModifier, Time.deltaTime * 8f);
+        } else {
+            playerCam.fieldOfView = Mathf.Lerp(playerCam.fieldOfView, baseFov, Time.deltaTime * 8f);
         }
         isGrounded = false;
     }

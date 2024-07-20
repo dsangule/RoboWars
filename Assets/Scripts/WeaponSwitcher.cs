@@ -75,6 +75,7 @@ public class WeaponSwitcher : MonoBehaviour {
         foreach (Transform _weapon in transform) {
             if (i == selectedWeapon) {
                 _weapon.gameObject.SetActive(true);
+                _weapon.GetComponent<Weapon>().SetAmmo();
             } else {
                 _weapon.gameObject.SetActive(false);
             }

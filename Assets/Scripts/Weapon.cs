@@ -34,6 +34,9 @@ public class Weapon : MonoBehaviour {
     [Space]
     public float recoilUp = 0.01f;
     public float recoilBack = 0.04f;
+    [Space]
+    public GameObject bulletHolePrefab;
+    public LayerMask canBeShot;
 
     private float nextFire;
     private Vector3 originalPosition;
@@ -43,7 +46,7 @@ public class Weapon : MonoBehaviour {
     private bool isRecoiling;
     private bool isRecovering;
 
-    void SetAmmo() {
+    public void SetAmmo() {
         ammoCircle.fillAmount = (float)ammo / magAmmo;
         magText.text = mag.ToString();
         ammoText.text = ammo + "/" + magAmmo;
