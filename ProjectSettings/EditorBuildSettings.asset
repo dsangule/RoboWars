@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: d5083713bf55d7a43acfe531e18b2b30
-  - enabled: 1
-    path: Assets/Scenes/Dust2.unity
+  - enabled: 0
+    path: Assets/Scenes/Bleh.unity
     guid: 51edf1673b42d4c629bae9fb99303306
+  - enabled: 1
+    path: Assets/Scenes/TwinTowers.unity
+    guid: cf63d66b181e94b039991826728c80c0
+  - enabled: 0
+    path: Assets/Scenes/Dust2.unity
+    guid: be8a650b533f344d2bcb365f9a0c45ef
   m_configObjects: {}
