@@ -1371,10 +1371,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 1460538813047403078}
-  walkSpeed: 4
-  sprintSpeed: 14
-  maxVelocityChange: 10
-  airControl: 0.5
+  walkSpeed: 6
+  sprintSpeed: 9
+  maxVelocityChange: 5
+  airControl: 0.75
   jumpHeight: 5
 --- !u!114 &5759070681622303289
 MonoBehaviour:

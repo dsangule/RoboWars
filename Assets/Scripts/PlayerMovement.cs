@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool isPaused;
 
     private float baseFov;
-    private float sprintFovModifier = 1.25f;
+    private float sprintFovModifier = 1.15f;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour {
                 rb.AddForce(CalculateMovement(isSprinting ? sprintSpeed * airControl : walkSpeed * airControl), ForceMode.VelocityChange);
             } else {
                 var velocity1 = rb.velocity;
-                velocity1 = new Vector3(velocity1.x * 0.2f * Time.fixedDeltaTime, velocity1.y, velocity1.z * 0.2f * Time.fixedDeltaTime);
+                velocity1 = new Vector3(velocity1.x * Time.fixedDeltaTime, velocity1.y, velocity1.z * Time.fixedDeltaTime);
                 rb.velocity = velocity1;
             }
         }
